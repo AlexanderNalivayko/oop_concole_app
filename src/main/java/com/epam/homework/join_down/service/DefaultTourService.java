@@ -4,9 +4,8 @@ import com.epam.homework.join_down.dao.TourDao;
 import com.epam.homework.join_down.model.Tour;
 import com.epam.homework.join_down.service.comparators.LocationComparator;
 import com.epam.homework.join_down.service.comparators.PriceComparator;
-import com.epam.homework.join_down.service.comparators.TourTypeComparator;
+import com.epam.homework.join_down.service.comparators.TourNameComparator;
 import com.epam.homework.join_down.ui.SortType;
-
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class DefaultTourService implements TourService {
         } else if (sortBy.equals(SortType.LOCATION)) {
             tours.sort(new LocationComparator());
         } else if (sortBy.equals(SortType.NAME)) {
-            tours.sort(new TourTypeComparator());
+            tours.sort(new TourNameComparator());
         }
         return tours;
     }

@@ -4,10 +4,10 @@ import com.epam.homework.join_down.model.Tour;
 
 import java.util.Comparator;
 
-public class TourTypeComparator implements Comparator<Tour> {
+public class TourNameComparator implements Comparator<Tour> {
 
     @Override
     public int compare(Tour tour1, Tour tour2) {
-        return tour1.getTourType().compareTo(tour2.getTourType());
+        return tour1.getTourName().compareTo(tour2.getTourName());
     }
 }

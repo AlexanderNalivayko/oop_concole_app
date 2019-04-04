@@ -33,6 +33,6 @@ public class InMemoryOrderDao implements OrderDao {
 
     @Override
     public synchronized int getNextId() {
-        return counter++;//TODO is there problem ?
+        return counter++;
     }
 }
