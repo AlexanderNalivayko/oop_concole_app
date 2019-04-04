@@ -1,47 +1,54 @@
 package com.epam.homework.join_down.ui;
 
-import com.epam.homework.join_down.model.Tour;
+import java.util.Scanner;
 
-import java.util.List;
+public abstract class View {
 
-public interface View {
+    private final Scanner scanner = new Scanner(System.in);
+    private static final String NEW_LINE = System.lineSeparator();
 
-    void showGreeting();
+    String getUserAnswer() {
+        return scanner.nextLine();
+    }
 
-    void showAvailableOptions();
+    public void freeResources() {
+        scanner.close();
+    }
 
-    void showTours(List<Tour> tours);
+    void showMessage(String message) {
+        System.out.println(NEW_LINE + message);
+    }
 
-    void showSortingDialogue();
+    abstract void showGreeting();
 
-    public String getNutritionFromUser();
+    abstract void showAvailableOptions();
 
-    String getUserAnswer();
+    abstract void showTours(String formattedTours);
 
-    public String getTransportFromUser();
+    abstract void showSortingDialogue();
 
-    public void showOrderDialogue();
+    abstract String getNutritionFromUser(String availableNutrition);
 
-    public String getDaysFromUser();
+    abstract String getTransportFromUser(String availableTransport);
 
-    String getIdFromUser();
+    abstract void showOrderDialogue();
 
-    void showMessage(String message);
+    abstract String getDaysFromUser();
 
-    public void freeResources();
+    abstract String getIdFromUser();
 
-    public void showWrongInputMsg();
+    abstract void showWrongInputMsg();
 
-    public String getFirstNameFromUser();
+    abstract String getFirstNameFromUser();
 
-    public String getLastNameFromUser();
+    abstract String getLastNameFromUser();
 
-    public String gePhoneFromUser();
+    abstract String gePhoneFromUser();
 
-    public void showNoOrders();
+    abstract void showNoOrders();
 
-    public void showOrdersHeader();
+    abstract void showOrders(String orders);
 
-    public void showOrderRegisteredMsg();
+    abstract void showOrderRegisteredMsg();
 
 }
