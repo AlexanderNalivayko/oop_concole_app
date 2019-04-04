@@ -115,4 +115,37 @@ public class Tour {
             return newTour;
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tour tour = (Tour) o;
+
+        if (!id.equals(tour.id)) return false;
+        if (tourName != null ? !tourName.equals(tour.tourName) : tour.tourName != null) return false;
+        if (location != null ? !location.equals(tour.location) : tour.location != null) return false;
+        if (tourType != tour.tourType) return false;
+        if (transportsIds != null ? !transportsIds.equals(tour.transportsIds) : tour.transportsIds != null)
+            return false;
+        if (pricePerDay != null ? !pricePerDay.equals(tour.pricePerDay) : tour.pricePerDay != null) return false;
+        if (pricePerDayWithNutrition != null ? !pricePerDayWithNutrition.equals(tour.pricePerDayWithNutrition) : tour.pricePerDayWithNutrition != null)
+            return false;
+        return description != null ? description.equals(tour.description) : tour.description == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + (tourName != null ? tourName.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (tourType != null ? tourType.hashCode() : 0);
+        result = 31 * result + (transportsIds != null ? transportsIds.hashCode() : 0);
+        result = 31 * result + (pricePerDay != null ? pricePerDay.hashCode() : 0);
+        result = 31 * result + (pricePerDayWithNutrition != null ? pricePerDayWithNutrition.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        return result;
+    }
 }
