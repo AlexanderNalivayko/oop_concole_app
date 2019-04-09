@@ -6,6 +6,7 @@ import com.epam.homework.join_down.model.Transport;
 import com.epam.homework.join_down.service.OrderService;
 import com.epam.homework.join_down.service.TourService;
 import com.epam.homework.join_down.service.TransportService;
+import com.epam.homework.join_down.util.FormatUtil;
 import com.epam.homework.join_down.util.ParserUtil;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public class ConsoleController {
     }
 
     private void listTours(List<Tour> tours) {
-        view.showTours(tours);
+        view.showTours(FormatUtil.FormatObjToUserFriendlyStr(tours));
         rootDialogue();
     }
 
@@ -62,11 +63,10 @@ public class ConsoleController {
             Tour tour = tourService.getTourById(Integer.parseInt(view.getIdFromUser()));
 
             Integer[] transportIds = ParserUtil.parseStringToIntArray(tour.getTransports());
-            showAvailableTransport(transportIds);
-            int transportId = transportIds[Integer.parseInt(view.getTransportFromUser()) - 1];
+            String transport = getAvailableTransport(transportIds);
+            int transportId = transportIds[Integer.parseInt(view.getTransportFromUser(transport)) - 1];
 
-            showAvailableNutrition();
-            String nutrition = view.getNutritionFromUser();
+            String nutrition = view.getNutritionFromUser(getAvailableNutrition());
 
             int days = Integer.parseInt(view.getDaysFromUser());
 
@@ -150,31 +150,36 @@ public class ConsoleController {
 
     private void showOrders() {
         List<Order> orders = orderService.getAllOrders();
-        view.showOrdersHeader();
         if (orders != null && !orders.isEmpty()) {
-            for (Order order : orders) {
-                view.showMessage(order.toString());
-            }
+            view.showOrders(FormatUtil.FormatObjToUserFriendlyStr(orders));
         } else {
             view.showNoOrders();
         }
         rootDialogue();
     }
 
-    private void showAvailableNutrition() {
-        view.showMessage("1. Included");
-        view.showMessage("2. Not Included");
+    private String getAvailableNutrition() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("1. Included");
+        stringBuilder.append(System.lineSeparator());
+        stringBuilder.append("2. Not Included");
+        return stringBuilder.toString();
     }
 
-    private void showAvailableTransport(Integer[] transportIds) {
-        for (int i = 0; i < transportIds.length; i++) {
+    private String getAvailableTransport(Integer[] transportIds) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int length = transportIds.length;
+        for (int i = 0; i < length; i++) {
             Transport transport = transportService.getTransportById(transportIds[i]);
-            view.showMessage(String.format(TRANSPORT_FORMAT,
+            stringBuilder.append(String.format(TRANSPORT_FORMAT,
                     i + 1,
                     transport.getTransportType(),
                     transport.getCompany(),
                     transport.getPrice()));
-
+            if (i < length - 1) {
+                stringBuilder.append(System.lineSeparator());
+            }
         }
+        return stringBuilder.toString();
     }
 }
