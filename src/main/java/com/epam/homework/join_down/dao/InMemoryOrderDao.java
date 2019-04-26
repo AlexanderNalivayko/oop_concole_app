@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InMemoryOrderDao implements OrderDao {
-
     private static HashMap<Integer, Order> orders = new HashMap<>();
     private static int counter = 0;
 

@@ -11,15 +11,12 @@ import com.epam.homework.join_down.util.ParserUtil;
 
 import java.util.List;
 
-
 public class ConsoleController {
-
     private static final String ANSWER_ONE = "1";
     private static final String ANSWER_TWO = "2";
     private static final String ANSWER_THREE = "3";
     private static final String ANSWER_FOUR = "4";
     private static final String ANSWER_FIVE = "5";
-
     private static final String TRANSPORT_FORMAT = "%d.%s, company: %s, price %s";
 
     private View view;
@@ -67,7 +64,6 @@ public class ConsoleController {
             int transportId = transportIds[Integer.parseInt(view.getTransportFromUser(transport)) - 1];
 
             String nutrition = view.getNutritionFromUser(getAvailableNutrition());
-
             int days = Integer.parseInt(view.getDaysFromUser());
 
             String firstName = view.getFirstNameFromUser();
@@ -90,24 +86,19 @@ public class ConsoleController {
             case ANSWER_ONE:
                 listTours(tourService.getAllTours());
                 break;
-
             case ANSWER_TWO:
                 sortingDialogue();
                 break;
-
             case ANSWER_THREE:
                 orderDialogue();
                 break;
-
             case ANSWER_FOUR:
                 showOrders();
                 break;
-
             case ANSWER_FIVE:
                 view.freeResources();
                 System.exit(0);
                 break;
-
             default:
                 wrongInput();
                 break;
@@ -117,26 +108,21 @@ public class ConsoleController {
     private void readSortResponse() {
         String userAnswer = view.getUserAnswer();
         switch (userAnswer) {
-
             case ANSWER_ONE:
                 listTours(tourService.getToursSortedBy(SortType.LOCATION));
                 rootDialogue();
                 break;
-
             case ANSWER_TWO:
                 listTours(tourService.getToursSortedBy(SortType.NAME));
                 rootDialogue();
                 break;
-
             case ANSWER_THREE:
                 listTours(tourService.getToursSortedBy(SortType.PRICE));
                 rootDialogue();
                 break;
-
             case ANSWER_FOUR:
                 rootDialogue();
                 break;
-
             default:
                 wrongInput();
                 break;
@@ -159,11 +145,9 @@ public class ConsoleController {
     }
 
     private String getAvailableNutrition() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("1. Included");
-        stringBuilder.append(System.lineSeparator());
-        stringBuilder.append("2. Not Included");
-        return stringBuilder.toString();
+        return "1. Included" +
+                System.lineSeparator() +
+                "2. Not Included";
     }
 
     private String getAvailableTransport(Integer[] transportIds) {

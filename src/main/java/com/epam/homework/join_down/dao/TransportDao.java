@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TransportDao {
 
-    public Transport getById(int id);
+    Transport getById(int id);
 
-    public List<Transport> getAll();
+    List<Transport> getAll();
 }

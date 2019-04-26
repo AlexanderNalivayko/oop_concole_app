@@ -7,7 +7,6 @@ import com.epam.homework.join_down.model.Tour;
 import java.util.List;
 
 public class DefaultOrderService implements OrderService {
-
     private OrderDao orderDao;
     private TransportService transportService;
 

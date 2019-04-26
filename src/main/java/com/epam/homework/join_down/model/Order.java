@@ -1,7 +1,6 @@
 package com.epam.homework.join_down.model;
 
 public class Order {
-
     private int id;
     private String ClientFirstName;
     private String ClientLastName;
@@ -80,9 +79,7 @@ public class Order {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Order order = (Order) o;
-
         if (id != order.id) return false;
         if (transportId != order.transportId) return false;
         if (days != order.days) return false;
@@ -94,7 +91,6 @@ public class Order {
             return false;
         if (phone != null ? !phone.equals(order.phone) : order.phone != null) return false;
         return tour != null ? tour.equals(order.tour) : order.tour == null;
-
     }
 
     @Override

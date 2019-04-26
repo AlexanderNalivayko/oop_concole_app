@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TourService {
 
-    public List<Tour> getAllTours();
+    List<Tour> getAllTours();
 
-    public List<Tour> getToursSortedBy(SortType sortBy);
+    List<Tour> getToursSortedBy(SortType sortBy);
 
-    public Tour getTourById(int id);
+    Tour getTourById(int id);
 }

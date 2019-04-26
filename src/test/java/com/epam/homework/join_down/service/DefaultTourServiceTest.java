@@ -20,8 +20,8 @@ public class DefaultTourServiceTest {
     @Before
     public void setUp() throws Exception {
         TourDao tourDao = mock(TourDao.class);
-
         List<Tour> tours = new ArrayList<>();
+
         tours.add(new Tour.Builder().withPricePerDay(200).withLocation("B").withTourName("AAB").build());
         tours.add(new Tour.Builder().withPricePerDay(100).withLocation("C").withTourName("AAD").build());
         tours.add(new Tour.Builder().withPricePerDay(300).withLocation("A").withTourName("AAC").build());

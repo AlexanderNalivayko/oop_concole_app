@@ -3,9 +3,9 @@ package com.epam.homework.join_down.ui;
 import java.util.Scanner;
 
 public abstract class View {
+    private static final String NEW_LINE = System.lineSeparator();
 
     private final Scanner scanner = new Scanner(System.in);
-    private static final String NEW_LINE = System.lineSeparator();
 
     String getUserAnswer() {
         return scanner.nextLine();
