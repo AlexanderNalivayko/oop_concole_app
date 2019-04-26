@@ -3,7 +3,6 @@ package com.epam.homework.join_down.model;
 import com.epam.homework.join_down.model.enums.TourType;
 
 public class Tour {
-
     private Integer id;
     private String tourName;
     private String location;
@@ -49,7 +48,6 @@ public class Tour {
         return description;
     }
 
-
     @Override
     public String toString() {
         return "Tour{" +
@@ -79,7 +77,6 @@ public class Tour {
             newTour.tourName = tourName;
             return this;
         }
-
 
         public Builder withLocation(String location) {
             newTour.location = location;
@@ -120,9 +117,7 @@ public class Tour {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Tour tour = (Tour) o;
-
         if (!id.equals(tour.id)) return false;
         if (tourName != null ? !tourName.equals(tour.tourName) : tour.tourName != null) return false;
         if (location != null ? !location.equals(tour.location) : tour.location != null) return false;
@@ -133,7 +128,6 @@ public class Tour {
         if (pricePerDayWithNutrition != null ? !pricePerDayWithNutrition.equals(tour.pricePerDayWithNutrition) : tour.pricePerDayWithNutrition != null)
             return false;
         return description != null ? description.equals(tour.description) : tour.description == null;
-
     }
 
     @Override

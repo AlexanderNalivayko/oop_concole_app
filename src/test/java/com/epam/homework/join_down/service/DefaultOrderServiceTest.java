@@ -24,7 +24,6 @@ public class DefaultOrderServiceTest {
 
     @Before
     public void setUp() throws Exception {
-
         OrderDao orderDao = mock(OrderDao.class);
         when(orderDao.getNextId()).thenReturn(0);
 
@@ -40,17 +39,13 @@ public class DefaultOrderServiceTest {
         transportId = 0;
         nutrition = false;
         days = 1;
-
     }
 
     @Test
     public void shouldReturnOrder() {
-
         Order expectedOrder = new Order(0, firstName, lastName, phone,
                 tour, transportId, days, nutrition, 200);
-
         Order createdOrder = orderService.createOrder(firstName, lastName, phone, tour, transportId, nutrition, days);
-
         assertThat(createdOrder).isEqualTo(expectedOrder);
     }
 

@@ -4,5 +4,5 @@ public enum TransportType {
     PLANE,
     SHIP,
     TRAIN,
-    BUS;
+    BUS
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TransportService {
 
-    public Transport getTransportById(int id);
+    Transport getTransportById(int id);
 
-    public List<Transport> getAllTransport();
+    List<Transport> getAllTransport();
 }

@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InMemoryTourDao implements TourDao {
-
     private static HashMap<Integer, Tour> tours = new HashMap<>();
+
     static {
         tours.put(0, new Tour.Builder()
                 .withId(0)
@@ -45,7 +45,7 @@ public class InMemoryTourDao implements TourDao {
                 .withId(3)
                 .withTourName("Ukrainian sanatorium")
                 .withLocation("Zhytomyr")
-                .withTourType(TourType.MEDICAL_TOURE)
+                .withTourType(TourType.MEDICAL_TOUR)
                 .withTransports("8")
                 .withPricePerDay(300)
                 .withPricePerDayWithNutrition(450)

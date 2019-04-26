@@ -3,7 +3,6 @@ package com.epam.homework.join_down.model;
 import com.epam.homework.join_down.model.enums.TransportType;
 
 public class Transport {
-
     private int id;
     private TransportType transportType;
     private String company;
@@ -36,14 +35,11 @@ public class Transport {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Transport transport = (Transport) o;
-
         if (id != transport.id) return false;
         if (price != transport.price) return false;
         if (transportType != transport.transportType) return false;
         return company != null ? company.equals(transport.company) : transport.company == null;
-
     }
 
     @Override

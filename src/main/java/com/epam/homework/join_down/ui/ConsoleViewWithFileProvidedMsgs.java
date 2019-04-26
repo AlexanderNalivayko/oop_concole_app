@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ConsoleViewWithFileProvidedMsgs extends View {
+    private static final String NEW_LINE = "\n";
 
     private FileInputStream fis;
     private Properties property = new Properties();
-    private static final String NEW_LINE = "\n";
 
     public ConsoleViewWithFileProvidedMsgs() {
         try {

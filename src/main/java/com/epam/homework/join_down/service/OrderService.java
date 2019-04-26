@@ -7,11 +7,10 @@ import java.util.List;
 
 public interface OrderService {
 
-    public void registerNewOrder(Order order);
+    void registerNewOrder(Order order);
 
-    public Order createOrder(String firstName, String LastName, String phone, Tour tour,
+    Order createOrder(String firstName, String LastName, String phone, Tour tour,
                              int transportId, boolean nutrition, int days);
 
-    public List<Order> getAllOrders();
-
+    List<Order> getAllOrders();
 }
